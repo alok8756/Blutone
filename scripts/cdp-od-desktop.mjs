@@ -1,0 +1,28 @@
+import fs from 'node:fs';
+const PORT = process.env.PORT || '5174';
+const CDP = process.env.CDP || '9229';
+const TOKEN = fs.readFileSync(process.env.TOKEN_FILE, 'utf8').trim();
+const targets = await (await fetch(`http://localhost:${CDP}/json`)).json();
+const page = targets.find((t) => t.type === 'page') || targets[0];
+const ws = new WebSocket(page.webSocketDebuggerUrl);
+let id = 0; const pending = new Map();
+const send = (m, p = {}) => new Promise((r) => { const i = ++id; pending.set(i, r); ws.send(JSON.stringify({ id: i, method: m, params: p })); });
+ws.addEventListener('message', (e) => { const m = JSON.parse(e.data); if (m.id && pending.has(m.id)) { pending.get(m.id)(m.result); pending.delete(m.id); } });
+await new Promise((r) => ws.addEventListener('open', r));
+const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+const ev = async (x) => (await send('Runtime.evaluate', { expression: x, returnByValue: true })).result.value;
+await send('Page.enable'); await send('Runtime.enable');
+await send('Emulation.setDeviceMetricsOverride', { width: 1280, height: 950, deviceScaleFactor: 1, mobile: false });
+await send('Page.navigate', { url: `http://localhost:${PORT}/` }); await wait(1500);
+await ev(`localStorage.setItem('bt_token', ${JSON.stringify(TOKEN)})`);
+await send('Page.navigate', { url: `http://localhost:${PORT}/account?tab=orders` }); await wait(5000);
+console.log('cards:', await ev(`document.querySelectorAll('.dta-order-btn').length`));
+await ev(`document.querySelectorAll('.dta-order-btn')[0].click()`);
+await wait(3000);
+console.log('detail boxes:', await ev(`document.querySelectorAll('.dta-detail').length`));
+await ev(`window.scrollTo(0, 1); window.scrollTo(0, 0);`); // force composite
+await wait(800);
+const r = await send('Page.captureScreenshot', { format: 'png', clip: { x: 0, y: 0, width: 1280, height: 760, scale: 1 }, fromSurface: true, captureBeyondViewport: false });
+fs.writeFileSync('shots/orderdetail_desktop.png', Buffer.from(r.data, 'base64'));
+console.log('wrote orderdetail_desktop');
+ws.close();

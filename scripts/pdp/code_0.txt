@@ -1,0 +1,380 @@
+const imgIcon = "https://www.figma.com/api/mcp/asset/3dfd0519-18ac-4d97-b1bb-1976bf45ceaf";
+const imgIcon1 = "https://www.figma.com/api/mcp/asset/e934db77-6e89-4ad5-8920-6f682bb1a929";
+const imgIcon2 = "https://www.figma.com/api/mcp/asset/9e4d30df-e3f1-4b7b-bbed-096c3e960101";
+const imgIcon3 = "https://www.figma.com/api/mcp/asset/15274c8a-e39a-48e2-b236-5f67866d4d2f";
+const imgSubtract = "https://www.figma.com/api/mcp/asset/1dc8af41-5d8d-4f41-8535-cb82e361384d";
+const imgIcon4 = "https://www.figma.com/api/mcp/asset/ec76bf3d-5d76-4c54-bde5-70b77b681d8d";
+const imgIcon5 = "https://www.figma.com/api/mcp/asset/ffda3d0f-e1ba-4d2b-a251-bdee8541c2bc";
+const imgVector1 = "https://www.figma.com/api/mcp/asset/969c242d-e1c8-4315-96e8-a1450b46c1ee";
+const imgGroup = "https://www.figma.com/api/mcp/asset/0e756b0f-1130-48f1-8798-4f52f42b7ef1";
+const imgGroup1 = "https://www.figma.com/api/mcp/asset/5f0c2811-a656-43ec-b14c-74f0f87ccd33";
+const imgVector = "https://www.figma.com/api/mcp/asset/a629289e-f7bf-4f73-aea0-71b8ff9f9420";
+const imgIcon6 = "https://www.figma.com/api/mcp/asset/bb139976-6030-4ea9-a527-75343e27747f";
+const imgVector2 = "https://www.figma.com/api/mcp/asset/7fba2e6e-9f72-44f8-ac5e-fe15e022e250";
+const imgProperty1Ellipse7 = "https://www.figma.com/api/mcp/asset/aa32072e-1369-48e0-91ca-1d6f708f5e14";
+const imgIcon7 = "https://www.figma.com/api/mcp/asset/ffbdcaeb-8e3f-4d28-9390-69676d7a92af";
+const imgIcon8 = "https://www.figma.com/api/mcp/asset/5f8e50c7-f4e9-4a28-90c6-cccbfbc15958";
+const imgIcon9 = "https://www.figma.com/api/mcp/asset/92e0eb09-427d-4202-9e27-9084f3d5a126";
+const imgIcon10 = "https://www.figma.com/api/mcp/asset/12a3d024-5ec0-49f1-be03-b8136983807d";
+const imgHdLogoPhotoroomTransparent2 = "https://www.figma.com/api/mcp/asset/d5bd0926-df75-4085-bef2-6b61a2eafc13";
+const imgBar1 = "https://www.figma.com/api/mcp/asset/8d30f98d-af0c-4edb-b0e9-296f226cf27d";
+const imgBar2 = "https://www.figma.com/api/mcp/asset/992017c1-eddc-4336-bf9c-02d19eda3775";
+const imgBar3 = "https://www.figma.com/api/mcp/asset/04847fc8-b0b9-49d4-9492-9a890a1c6c05";
+const imgBar4 = "https://www.figma.com/api/mcp/asset/84c9d11d-0aa1-41c4-8d0d-496f9e673c80";
+const imgBar5 = "https://www.figma.com/api/mcp/asset/511c5e08-1f16-4d4c-9173-61b15f6e6349";
+const imgBar6 = "https://www.figma.com/api/mcp/asset/a0e7ae53-f736-454b-b60a-5f1c164bb429";
+const imgBar7 = "https://www.figma.com/api/mcp/asset/767fb936-494c-4a55-9ec2-c0d33e9be02a";
+const imgBorder = "https://www.figma.com/api/mcp/asset/b610001e-4846-4e8b-90ef-21cfecebebc1";
+const imgCap = "https://www.figma.com/api/mcp/asset/7de758f7-7e3a-442d-b8b9-4e3e65b1827c";
+const imgIcon11 = "https://www.figma.com/api/mcp/asset/57383bd2-f92e-47d3-afb8-78994ac59423";
+const imgVector3 = "https://www.figma.com/api/mcp/asset/1960da6d-d605-46eb-bc19-8e89dc9b5eb5";
+const imgSelectedColor = "https://www.figma.com/api/mcp/asset/556df693-cb25-42f6-85e2-b1abee883fea";
+const imgLine8 = "https://www.figma.com/api/mcp/asset/f36de7aa-4e29-45cf-baac-d076e702b6da";
+const imgIcon12 = "https://www.figma.com/api/mcp/asset/29826789-eb21-4bc4-a875-ec25e2cebb44";
+const imgLine1 = "https://www.figma.com/api/mcp/asset/6b15712d-2dac-4006-9ed7-89bd0ec6f29c";
+const imgUnion = "https://www.figma.com/api/mcp/asset/55009b49-8325-42c3-91b2-8e85180e88f1";
+const imgSubtract1 = "https://www.figma.com/api/mcp/asset/f9abdd37-a687-43de-87f5-2192f24deceb";
+const imgSubtract2 = "https://www.figma.com/api/mcp/asset/31c27e8c-7129-4771-9b8a-c72433e7088f";
+const imgUnion1 = "https://www.figma.com/api/mcp/asset/01b26d73-b5fc-4810-b510-4e26b2f36042";
+const imgLine11 = "https://www.figma.com/api/mcp/asset/3e43457c-4dc5-4d44-8eff-7898103902ce";
+
+type Component1Props = {
+  className?: string;
+  property1?: "Outline";
+  property2?: "Communication";
+  property3?: "User";
+};
+
+function Component1({ className, property1 = "Outline", property2 = "Communication", property3 = "User" }: Component1Props) {
+  return (
+    <button className={className || "block cursor-pointer relative size-[32px]"} data-node-id="173:1643">
+      <div className="absolute inset-[13.54%_17.71%_15.71%_17.71%]" data-node-id="173:1641" data-name="Icon">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIcon} />
+      </div>
+    </button>
+  );
+}
+
+type CartProps = {
+  className?: string;
+  property1?: "Outline";
+  property2?: "General";
+  property3?: "Shopping-cart";
+};
+
+function Cart({ className, property1 = "Outline", property2 = "General", property3 = "Shopping-cart" }: CartProps) {
+  return (
+    <button className={className || "block cursor-pointer relative size-[32px]"} data-node-id="173:1631">
+      <div className="absolute inset-[11.46%_12.91%_10.42%_5.21%]" data-node-id="173:1626" data-name="Icon">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIcon1} />
+      </div>
+    </button>
+  );
+}
+
+type CategoryIconProps = {
+  className?: string;
+  property1?: "Outline";
+  property2?: "Interface";
+  property3?: "Layout";
+};
+
+function CategoryIcon({ className, property1 = "Outline", property2 = "Interface", property3 = "Layout" }: CategoryIconProps) {
+  return (
+    <button className={className || "block cursor-pointer relative size-[32px]"} data-node-id="173:1618">
+      <div className="absolute inset-[11.93%_11.96%]" data-node-id="173:1613" data-name="Icon">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIcon2} />
+      </div>
+    </button>
+  );
+}
+
+type HomeIconProps = {
+  className?: string;
+  property1?: "Outline";
+  property2?: "General";
+  property3?: "Home";
+};
+
+function HomeIcon({ className, property1 = "Outline", property2 = "General", property3 = "Home" }: HomeIconProps) {
+  return (
+    <button className={className || "block cursor-pointer relative size-[32px]"} data-node-id="173:1607">
+      <div className="absolute inset-[14.2%_15.21%_9.38%_15.21%]" data-node-id="173:1603" data-name="Icon">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIcon3} />
+      </div>
+    </button>
+  );
+}
+
+function SolidBrandsWhatsapp({ className }: { className?: string }) {
+  return (
+    <div className={className || "relative size-[24px]"} data-node-id="29:330" data-name="Solid/Brands/Whatsapp">
+      <div className="absolute inset-[8.33%_8.33%_9.01%_8.68%]" data-node-id="29:331" data-name="Subtract">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgSubtract} />
+      </div>
+    </div>
+  );
+}
+
+function SolidCommunicationPhone({ className }: { className?: string }) {
+  return (
+    <div className={className || "relative size-[24px]"} data-node-id="29:327" data-name="Solid/Communication/Phone">
+      <div className="absolute inset-[13.75%_14.02%_17.67%_17.36%]" data-node-id="29:328" data-name="Icon">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIcon4} />
+      </div>
+    </div>
+  );
+}
+
+function SolidCommunicationEnvelope({ className }: { className?: string }) {
+  return (
+    <div className={className || "relative size-[24px]"} data-node-id="29:324" data-name="Solid/Communication/Envelope">
+      <div className="absolute inset-[19.6%_11.82%]" data-node-id="29:325" data-name="Icon">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIcon5} />
+      </div>
+    </div>
+  );
+}
+
+type TrendingProps = {
+  className?: string;
+  btHeading?: string;
+};
+
+function Trending({ className, btHeading = "TRENDING" }: TrendingProps) {
+  return (
+    <div className={className || "h-[24px] relative w-[124px]"} data-node-id="7:244" data-name="TRENDING">
+      <p className="[word-break:break-word] absolute font-['Montserrat:Medium'] font-medium inset-0 leading-[normal] text-[20px] text-black" data-node-id="7:243">
+        {btHeading}
+      </p>
+    </div>
+  );
+}
+
+function Vector1({ className }: { className?: string }) {
+  return (
+    <div className={className || "h-[10px] relative w-[20px]"} data-node-id="99:581">
+      <div className="absolute inset-[-10.61%_-5.3%_-21.21%_-5.3%]">
+        <img alt="" className="block max-w-none size-full" src={imgVector1} />
+      </div>
+    </div>
+  );
+}
+
+type SizeSelectProps = {
+  className?: string;
+  sizeText?: string;
+  state?: "default" | "clicked";
+};
+
+function SizeSelect({ className, sizeText = "S", state = "default" }: SizeSelectProps) {
+  const isClicked = state === "clicked";
+  return (
+    <button className={className || `content-stretch flex flex-col items-center justify-center pl-[13px] pr-[14px] py-[8px] relative rounded-[20px] size-[40px] ${isClicked ? "bg-black" : "bg-[#d9d9d9]"}`} id={isClicked ? "node-93_539" : "node-93_540"}>
+      {state === "default" && (
+        <p className="[word-break:break-word] font-['Montserrat:Medium'] font-medium leading-[normal] relative shrink-0 text-[20px] text-black text-center whitespace-nowrap" data-node-id="93:532">
+          {sizeText}
+        </p>
+      )}
+      {isClicked && (
+        <p className="[word-break:break-word] font-['Montserrat:Medium'] font-medium leading-[normal] relative shrink-0 text-[20px] text-center text-white whitespace-nowrap" data-node-id="93:538">
+          {sizeText}
+        </p>
+      )}
+    </button>
+  );
+}
+
+function StreamlineCyberCashHand1({ className }: { className?: string }) {
+  return (
+    <div className={className || "relative size-[32px]"} data-node-id="10:78" data-name="streamline-cyber:cash-hand-1">
+      <div className="absolute inset-[2.08%_16.67%_2.08%_2.08%]" data-node-id="10:74" data-name="Group">
+        <div className="absolute inset-[-1.63%_-1.92%]">
+          <img alt="" className="block max-w-none size-full" src={imgGroup} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function HugeiconsDeliveryReturn02({ className }: { className?: string }) {
+  return (
+    <div className={className || "relative size-[32px]"} data-node-id="10:72" data-name="hugeicons:delivery-return-02">
+      <div className="absolute inset-[10.42%_10.41%_10.42%_10.42%]" data-node-id="10:69" data-name="Group">
+        <div className="absolute inset-[-1.97%]">
+          <img alt="" className="block max-w-none size-full" src={imgGroup1} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function IconamoonDeliveryThin({ className }: { className?: string }) {
+  return (
+    <div className={className || "relative size-[32px]"} data-node-id="10:81" data-name="iconamoon:delivery-thin">
+      <div className="absolute inset-[10.42%_6.25%_10.41%_6.25%]" data-node-id="10:80" data-name="Vector">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector} />
+      </div>
+    </div>
+  );
+}
+
+function OutlineInterfaceCaretLeft({ className }: { className?: string }) {
+  return (
+    <div className={className || "relative size-[32px]"} data-node-id="42:135" data-name="Outline/Interface/Caret left">
+      <div className="absolute inset-[30.21%_40.63%_30.21%_36.46%]" data-node-id="42:136" data-name="Icon">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIcon6} />
+      </div>
+    </div>
+  );
+}
+
+function IconsansBoldTick({ className }: { className?: string }) {
+  return (
+    <div className={className || "overflow-clip relative size-[24px]"} data-node-id="99:565" data-name="Iconsans/Bold/Tick">
+      <div className="absolute inset-[12.5%]" data-node-id="99:566" data-name="Vector">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector2} />
+      </div>
+    </div>
+  );
+}
+
+type SelectedColorProps = {
+  className?: string;
+  property1?: "Ellipse 7";
+};
+
+function SelectedColor({ className, property1 = "Ellipse 7" }: SelectedColorProps) {
+  return (
+    <button className={className || "block relative size-[40px]"} data-node-id="80:738">
+      <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgProperty1Ellipse7} />
+    </button>
+  );
+}
+
+function SolidStatusStarHalf({ className }: { className?: string }) {
+  return (
+    <div className={className || "relative size-[20px]"} data-node-id="80:708" data-name="Solid/Status/Star-half">
+      <div className="absolute inset-[8.52%_47.92%_12.33%_8.33%]" data-node-id="80:709" data-name="Icon">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIcon7} />
+      </div>
+    </div>
+  );
+}
+
+function SolidCommunicationForward({ className }: { className?: string }) {
+  return (
+    <div className={className || "relative size-[28px]"} data-node-id="80:653" data-name="Solid/Communication/Forward">
+      <div className="absolute inset-[24.5%_18.15%_24.5%_10.42%]" data-node-id="80:654" data-name="Icon">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIcon8} />
+      </div>
+    </div>
+  );
+}
+
+function OutlineCommunicationForward({ className }: { className?: string }) {
+  return (
+    <div className={className || "relative size-[28px]"} data-node-id="80:639" data-name="Outline/Communication/Forward">
+      <div className="absolute inset-[23.87%_17.71%_23.45%_9.37%]" data-node-id="80:640" data-name="Icon">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIcon9} />
+      </div>
+    </div>
+  );
+}
+
+type ShareIconProps = {
+  className?: string;
+  property1?: "unclicked";
+};
+
+function ShareIcon({ className, property1 = "unclicked" }: ShareIconProps) {
+  return (
+    <button className={className || "bg-white content-stretch flex items-center p-[10px] relative rounded-[30px]"} data-node-id="80:679">
+      <OutlineCommunicationForward className="relative shrink-0 size-[28px]" />
+    </button>
+  );
+}
+
+function OutlineStatusHeart({ className }: { className?: string }) {
+  return (
+    <div className={className || "relative size-[28px]"} data-node-id="80:634" data-name="Outline/Status/Heart">
+      <div className="absolute inset-[21.88%_13.54%_17.71%_13.54%]" data-node-id="80:635" data-name="Icon">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIcon10} />
+      </div>
+    </div>
+  );
+}
+
+export default function ProductPage() {
+  return (
+    <div className="bg-white relative size-full" data-node-id="77:574" data-name="Product page">
+      <div className="-translate-x-1/2 absolute bg-[#020912] content-stretch flex h-[48px] items-center justify-between left-1/2 pl-[35px] pr-[20px] py-[16px] top-0 w-[393px]" data-node-id="77:575" data-name="Status Bar/iOS">
+        <div className="content-stretch flex gap-[4px] items-center justify-center relative shrink-0" data-node-id="I77:575;179:295" data-name="Time">
+          <div className="[word-break:break-word] content-stretch flex font-['SF_Pro_Display:Medium'] items-center leading-[normal] not-italic relative shrink-0 text-[#fffefe] text-[14px] whitespace-nowrap" data-node-id="I77:575;179:295;179:118" data-name="clock">
+            <p className="relative shrink-0" data-node-id="I77:575;179:295;179:119">
+              9
+            </p>
+            <p className="relative shrink-0" data-node-id="I77:575;179:295;179:120">
+              :
+            </p>
+            <p className="relative shrink-0" data-node-id="I77:575;179:295;179:121">
+              41
+            </p>
+          </div>
+        </div>
+        <div className="content-stretch flex gap-[8.5px] items-center justify-end relative shrink-0" data-node-id="I77:575;179:296" data-name="Icons">
+          <div className="h-[10px] relative shrink-0 w-[18px]" data-node-id="I77:575;179:297" data-name="Cellular Signal">
+            <div className="absolute inset-[60%_83.33%_0_0]" data-node-id="I77:575;179:297;179:146" data-name="Bar 1">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgBar1} />
+            </div>
+            <div className="absolute inset-[40%_55.56%_0_27.78%]" data-node-id="I77:575;179:297;179:147" data-name="Bar 2">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgBar2} />
+            </div>
+            <div className="absolute inset-[20%_27.78%_0_55.56%]" data-node-id="I77:575;179:297;179:148" data-name="Bar 3">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgBar3} />
+            </div>
+            <div className="absolute inset-[0_0_0_83.33%]" data-node-id="I77:575;179:297;179:149" data-name="Bar 4">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgBar4} />
+            </div>
+          </div>
+          <div className="h-[11.619px] overflow-clip relative shrink-0 w-[16px]" data-node-id="I77:575;179:298" data-name="Wifi">
+            <div className="absolute inset-[69.84%_34.38%_-0.01%_34.32%]" data-node-id="I77:575;179:298;179:204" data-name="Bar 1">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgBar5} />
+            </div>
+            <div className="absolute inset-[33.73%_18.68%_31.83%_18.75%]" data-node-id="I77:575;179:298;179:205" data-name="Bar 2">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgBar6} />
+            </div>
+            <div className="absolute inset-[0.01%_0.01%_56.96%_-0.02%]" data-node-id="I77:575;179:298;179:206" data-name="Bar 3">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgBar7} />
+            </div>
+          </div>
+          <div className="h-[12px] overflow-clip relative shrink-0 w-[24px]" data-node-id="I77:575;179:299" data-name="Battery">
+            <div className="absolute inset-[0_12.5%_0_0]" data-node-id="I77:575;179:299;179:233" data-name="border">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgBorder} />
+            </div>
+            <div className="absolute bg-[#fffefe] inset-[16.67%_20.83%_16.67%_8.33%] rounded-[1px]" data-node-id="I77:575;179:299;179:234" data-name="indicator" />
+            <div className="absolute inset-[33.33%_0_33.33%_91.67%]" data-node-id="I77:575;179:299;179:235" data-name="cap">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgCap} />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="absolute content-stretch flex gap-[12px] items-start left-[20px] top-[80px]" data-node-id="77:583">
+        <OutlineInterfaceCaretLeft className="relative shrink-0 size-[32px]" />
+        <p className="[word-break:break-word] font-['Montserrat:SemiBold'] font-semibold leading-[normal] relative shrink-0 text-[20px] text-black w-[309px]" data-node-id="77:585">
+          Maroon Cotton Ankle Length Leggings
+        </p>
+      </div>
+      <div className="absolute bg-[#d9d9d9] h-[468px] left-[20px] overflow-clip top-[158px] w-[353px]" data-node-id="77:586">
+        <div className="-translate-x-1/2 absolute content-stretch flex gap-[10px] items-center left-1/2 top-[435px]" data-node-id="77:587">
+          <div className="bg-white h-[6px] relative rounded-[4px] shrink-0 w-[41px]" data-node-id="77:588" />
+          <div className="bg-[#565656] h-[6px] relative rounded-[4px] shrink-0 w-[41px]" data-node-id="77:589" />
+          <div className="bg-[#565656] h-[6px] relative rounded-[4px] shrink-0 w-[41px]" data-node-id="77:590" />
+          <div className="bg-[#565656] h-[6px] relative rounded-[4px] shrink-0 w-[41px]" data-node-id="77:591" />
+          <div className="bg-[#565656] h-[6px] relative rounded-[4px] shrink-0 w-[41px]" data-node-id="77:592" />
+        </div>
+      </div>
+      <p className="[word-break:break-word] absolute font-['Montserrat:Medium'] font-medium leading-[normal] left-[20px] text-[19px] text-black top-[654px] whitespace-nowrap" data-node-id="77:602">
+        Leggings: Maroon
+      </p>
+      <button className="absolute bg-white content-stretch cursor-pointer flex items-center left-[calc(80%+10.6px)] p-[10px] rounded-[30px] top-[654px]" data-node-id="80:691" data-name="like icon">

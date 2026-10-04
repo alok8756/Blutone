@@ -1,0 +1,101 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  /* always reserve the vertical scrollbar so the scale factor stays stable */
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+body {
+  background: #f2f2f2;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+#root {
+  width: 100%;
+}
+
+img {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+p {
+  margin: 0;
+}
+
+/* hide scrollbars on the horizontal carousels while keeping them scrollable */
+.bt-scroll {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.bt-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* Announcement-strip marquee: two identical groups scroll left; shifting by
+   exactly one group (-50% of the track) loops seamlessly. */
+.bt-marquee {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  will-change: transform;
+  animation: bt-marquee-scroll 16s linear infinite;
+}
+@keyframes bt-marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bt-marquee { animation: none; }
+}
+
+/* ---- Loading states: shimmer skeletons + spinner ------------------------- */
+/* A skeleton block: a soft grey placeholder with a light sweep travelling
+   across it. Give it width/height/radius via inline style; the sweep is drawn
+   by ::after so it works on any sized box. */
+.bt-skel {
+  position: relative;
+  overflow: hidden;
+  background: #e7e9f0;
+  border-radius: 8px;
+}
+.bt-skel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.7) 50%, transparent 100%);
+  animation: bt-shimmer 1.3s ease-in-out infinite;
+}
+@keyframes bt-shimmer {
+  100% { transform: translateX(100%); }
+}
+
+/* A circular spinner (brand pink head on a faint track). Size via inline style. */
+.bt-spinner {
+  border-radius: 50%;
+  border: 3px solid rgba(60, 65, 84, 0.15);
+  border-top-color: #fa0789;
+  animation: bt-spin 0.8s linear infinite;
+}
+@keyframes bt-spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bt-skel::after { animation: none; }
+  .bt-spinner { animation-duration: 1.6s; }
+}

@@ -1,0 +1,286 @@
+/* ============================================================
+   Desktop Home — rebuilt to match Figma 397:3405 (1728 canvas),
+   scaled to a 1360px content column. Mobile is the source of
+   truth for content/colours; this reflows it for wide screens.
+   ============================================================ */
+.dh {
+  --navy50: #f3f3f6; --navy100: #e7e8ee; --navy200: #cfd1dd; --navy300: #b7bbcc;
+  --navy400: #a0a5bc; --navy500: #8990ac; --navy600: #727b9c; --navy700: #606783;
+  --navy800: #4e546b; --navy900: #3c4154; --navy950: #20232f;
+  --pink50: #ffecf1; --pink100: #ffdde6; --pink200: #ffb9ce; --pink300: #fe92b7;
+  --pink500: #fa0789; --pink600: #c6046b; --pink700: #9a0252; --pink800: #6c0138;
+  --pink900: #420020; --pink950: #2b0012; --grey600: #686868;
+  background: #fff;
+  color: #000;
+  font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+}
+/* Side gutter shared by every desktop section, so all of them line up on the
+   same left/right edge. 80px matches the Figma 1728 desktop frame; the
+   narrow-screen fallbacks are in the media queries at the bottom.
+   Declared for BOTH wrappers: home is .dh, every other desktop page is .dt,
+   and DesktopFooter renders inside both — scoping this to .dh alone left the
+   footer with no gutter on the other 8 pages. */
+.dh, .dt { --gutter: 80px; }
+.dh * { box-sizing: border-box; }
+.dh-wrap { max-width: 1360px; margin: 0 auto; padding: 0 var(--gutter); width: 100%; }
+.dh-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  border: none; cursor: pointer; font-family: 'Montserrat', sans-serif;
+  font-weight: 500; color: #fff; background: var(--navy950);
+  padding: 14px 26px; font-size: 17px;
+}
+.dh-btn.pink { background: var(--pink600); }
+.dh-btn:hover { opacity: 0.93; }
+
+/* ---------- Section heading with side rules (SHOP BY CATEGORY) ---------- */
+.dh-cat-head { display: flex; align-items: center; justify-content: center; gap: 22px; }
+/* Side rules use Color/Navy/Navy 500 (#8990ac). */
+.dh-cat-head .rule { height: 1px; width: clamp(80px, 18vw, 300px); background: var(--navy500); }
+.dh-cat-head h2 {
+  font-family: 'Cormorant Garamond', serif; font-weight: 600;
+  font-size: clamp(28px, 3vw, 40px); color: var(--navy950); margin: 0; white-space: nowrap;
+}
+
+/* ---------- Hero carousel ---------- */
+/* Full-bleed banners kept at their native 1728:834 ratio so the baked-in
+   headline, "SHOP NOW" button and models are never cropped. */
+.dh-hero { position: relative; width: 100%; aspect-ratio: 1728 / 834; overflow: hidden; }
+.dh-hero-track { display: flex; height: 100%; transition: transform 0.6s ease; }
+.dh-hero-slide { flex: 0 0 100%; height: 100%; position: relative; display: block; padding: 0; border: 0; background: none; cursor: pointer; }
+.dh-hero-slide > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.dh-hero-dots { position: absolute; left: 0; right: 0; bottom: 22px; display: flex; gap: 10px; justify-content: center; z-index: 2; }
+.dh-dot { width: 12px; height: 12px; border-radius: 50%; border: none; cursor: pointer; background: rgba(255,255,255,0.6); padding: 0; }
+.dh-dot.on { background: var(--pink500); width: 30px; border-radius: 6px; }
+
+/* ---------- Feature strip ---------- */
+.dh-featstrip { background: var(--navy900); }
+.dh-featstrip-inner { max-width: 1360px; margin: 0 auto; padding: 26px var(--gutter); display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+.dh-feat { display: flex; align-items: center; gap: 10px; }
+.dh-feat img { width: 30px; height: 30px; display: block; }
+.dh-feat span { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 600; font-size: clamp(18px, 1.9vw, 26px); color: var(--pink50); white-space: nowrap; }
+
+/* ---------- Section spacing ---------- */
+.dh-sec { padding: clamp(48px, 5vw, 84px) 0 0; }
+
+/* ---------- Shop by Category ---------- */
+.dh-cats { padding-top: clamp(48px, 5vw, 80px); }
+.dh-cat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 40px; }
+.dh-cat-card {
+  border: 4px solid var(--pink300);
+  background: linear-gradient(179.9deg, var(--pink50) 5%, var(--pink100) 66%, var(--pink200) 92%);
+  padding: 20px; display: flex; flex-direction: column; gap: 26px; align-items: center;
+  cursor: pointer; transition: transform 0.2s ease;
+}
+.dh-cat-card:hover { transform: translateY(-6px); }
+.dh-cat-card .img { width: 100%; aspect-ratio: 1; overflow: hidden; }
+.dh-cat-card .img img { width: 100%; height: 100%; object-fit: cover; object-position: center 12%; }
+.dh-cat-card span { font-weight: 600; font-size: clamp(20px, 2vw, 28px); color: var(--pink900); text-align: center; }
+
+/* ---------- Blutone Essential ---------- */
+/* Figma Frame 625 (1392:9454): the coloured band itself is inset — x=80, w=1568
+   in the 1728 frame — so it does NOT run edge to edge. Inside it the copy sits
+   112px off the band's left edge and the photo runs flush to its right edge. */
+.dh-essential { background: var(--navy300); margin-top: clamp(48px, 5vw, 84px); margin-inline: var(--gutter); }
+/* Left inset for the copy; no right inset, so the photo reaches the band edge
+   (which is already --gutter away from the screen). */
+.dh-essential-inner { max-width: 1360px; margin: 0 auto; padding: 0 0 0 var(--gutter); display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; }
+.dh-essential-text { padding: clamp(36px, 4vw, 60px) 0; display: flex; flex-direction: column; justify-content: center; }
+.dh-essential-text h2 { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 600; font-size: clamp(34px, 4vw, 58px); color: #000; margin: 0; }
+.dh-essential-text .desc { font-size: clamp(15px, 1.5vw, 20px); color: var(--navy900); line-height: 1.5; margin: 18px 0 0; max-width: 460px; }
+.dh-essential-text .desc b { font-weight: 600; }
+.dh-essential-text .price { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 700; font-size: clamp(28px, 3vw, 48px); color: var(--pink700); margin: 22px 0 0; }
+.dh-essential-text .dh-btn { align-self: flex-start; margin-top: 28px; }
+/* Show the full image at its natural height (landscape shot — cover was cropping faces). */
+.dh-essential-img { position: relative; display: flex; }
+.dh-essential-img img { display: block; width: 100%; height: auto; object-fit: contain; align-self: center; }
+
+/* ---------- Style Spotlight (coverflow) ---------- */
+/* Figma 1062-8621: full-bleed pink→navy gradient with rounded top corners. */
+/* Figma Frame 509 (1062:8621): band inset to x=80 / w=1568 in the 1728 frame,
+   with 80px padding inside it and an 80px radius on the top corners only
+   (bottom 0) — so it stops --gutter short of both screen edges. */
+.dh-spot {
+  margin-top: clamp(48px, 5vw, 84px);
+  margin-inline: var(--gutter);
+  padding: clamp(48px, 5vw, 84px) 0;
+  background: linear-gradient(to bottom, var(--pink600) 0%, var(--pink500) 50%, var(--navy900) 100%);
+  border-radius: clamp(40px, 6vw, 80px) clamp(40px, 6vw, 80px) 0 0;
+}
+.dh-spot-inner { text-align: center; }
+.dh-spot h2 { font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: clamp(32px, 3.6vw, 56px); color: #f3f3f3; margin: 0 0 clamp(28px, 3.5vw, 48px); }
+.dh-spot-stage { position: relative; height: clamp(500px, 50vw, 680px); overflow: hidden; }
+.dh-spot-card {
+  position: absolute; left: 50%; top: 50%; width: clamp(260px, 27vw, 360px); aspect-ratio: 244 / 372;
+  border: none; padding: 0; background: none; cursor: pointer; border-radius: 24px; overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28); transform-origin: center center;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+.dh-spot-card img { width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
+.dh-spot-arrow {
+  position: absolute; top: 50%; transform: translateY(-50%); z-index: 6; width: 52px; height: 52px;
+  border-radius: 50%; border: none; background: rgba(255, 255, 255, 0.85); color: var(--navy950);
+  font-size: 30px; line-height: 1; cursor: pointer; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+  display: flex; align-items: center; justify-content: center;
+}
+.dh-spot-arrow.left { left: clamp(8px, 3vw, 60px); }
+.dh-spot-arrow.right { right: clamp(8px, 3vw, 60px); }
+.dh-spot-arrow:hover { background: #fff; }
+.dh-spot-dots { display: flex; gap: 10px; justify-content: center; margin-top: 26px; }
+.dh-spot-dots .d { width: 16px; height: 16px; border-radius: 50%; background: rgba(255, 255, 255, 0.55); border: none; padding: 0; cursor: pointer; transition: width 0.3s ease, background 0.3s ease; }
+.dh-spot-dots .d.on { background: var(--pink500); width: 40px; border-radius: 8px; }
+
+/* ---------- Best Quality Bottoms (Figma 447-2489) ---------- */
+.dh-bestqual { margin-top: clamp(48px, 5vw, 84px); background: var(--navy200); }
+/* The stacked logo is the tallest child, so it sets this band's height — it and
+   the vertical padding are the two levers. Trimmed together to keep the band
+   compact without shrinking the copy. */
+.dh-bestqual-inner { max-width: 1360px; margin: 0 auto; padding: clamp(20px, 2.4vw, 34px) var(--gutter); display: flex; align-items: center; justify-content: center; gap: clamp(24px, 4vw, 60px); }
+.dh-bestqual-logo { width: clamp(150px, 16vw, 240px); height: auto; flex-shrink: 0; }
+.dh-bestqual-sep { width: 2px; align-self: stretch; background: var(--navy400, #a0a5bc); }
+.dh-bestqual-feats { display: flex; gap: clamp(24px, 4vw, 75px); flex-wrap: wrap; }
+.dh-bq-feat { display: flex; align-items: center; gap: 14px; }
+.dh-bq-feat .ic { width: clamp(56px, 6vw, 80px); height: clamp(56px, 6vw, 80px); flex-shrink: 0; border: 3px solid var(--navy900); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+.dh-bq-feat .ic img { width: 62%; height: 62%; object-fit: contain; }
+.dh-bq-feat .tx { display: flex; flex-direction: column; gap: 4px; }
+.dh-bq-feat .tx p { margin: 0; }
+.dh-bq-feat .strong { font-weight: 600; font-size: clamp(16px, 1.7vw, 22px); color: var(--navy900); }
+.dh-bq-feat .soft { font-weight: 500; font-size: clamp(14px, 1.5vw, 20px); color: var(--navy800); }
+.dh-bestqual-tag { text-align: center; font-weight: 500; font-size: clamp(18px, 2vw, 26px); color: var(--navy950); margin: 0; padding: clamp(10px, 1.2vw, 15px) 20px; background: var(--navy400, #a0a5bc); letter-spacing: 0.5px; }
+
+/* ---------- Our Craft ---------- */
+.dh-craft { padding-top: clamp(48px, 5vw, 84px); }
+.dh-craft-box { position: relative; border-radius: 40px; overflow: hidden; }
+.dh-craft-box > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.dh-craft-text { position: relative; padding: clamp(40px, 5vw, 90px); max-width: 60%; display: flex; flex-direction: column; gap: clamp(28px, 4vw, 66px); }
+.dh-craft-text .ey { font-weight: 500; font-size: clamp(16px, 1.7vw, 24px); color: var(--pink800); letter-spacing: 1.2px; margin: 0 0 16px; }
+.dh-craft-text .q { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(30px, 4vw, 60px); color: var(--pink700); margin: 0; }
+.dh-craft-text .b { font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: clamp(40px, 6vw, 92px); color: var(--pink950); margin: 0; line-height: 1; }
+.dh-craft-text .p { font-weight: 500; font-size: clamp(15px, 1.7vw, 24px); line-height: 1.55; color: var(--pink800); max-width: 700px; }
+.dh-craft-text .dh-btn { align-self: flex-start; }
+
+/* ---------- Rails ---------- */
+/* padding-top only — must NOT clobber .dh-wrap's horizontal inset (shorthand would). */
+.dh-rail-sec { padding-top: clamp(48px, 5vw, 84px); }
+.dh-rail-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 32px; }
+.dh-rail-head h2 { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(30px, 3.4vw, 54px); color: var(--navy950); margin: 0; }
+.dh-rail-head .va { font-size: clamp(16px, 1.6vw, 22px); color: var(--grey600); text-decoration: underline; cursor: pointer; }
+.dh-rail { display: flex; gap: 28px; overflow-x: auto; padding-bottom: 14px; scroll-snap-type: x mandatory; }
+.dh-rail > * { scroll-snap-align: start; flex-shrink: 0; }
+
+/* ---------- Stats band ---------- */
+.dh-stats { margin-top: clamp(48px, 5vw, 84px); background-color: var(--navy700); background-image: url(../assets/imgStatsBg.png); background-size: cover; background-position: center; border-bottom: 20px solid var(--navy950); }
+.dh-stats-inner { max-width: 1360px; margin: 0 auto; padding: clamp(48px, 5vw, 84px) var(--gutter); display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.dh-stat { background: var(--navy950); border-radius: 12px; padding: 22px 26px; box-shadow: 0 4px 12px rgba(0,0,0,0.25); display: flex; flex-direction: column; gap: 10px; }
+.dh-stat .big { font-weight: 600; font-size: clamp(24px, 2.6vw, 36px); color: var(--navy50); }
+.dh-stat .lbl { font-weight: 500; font-size: clamp(16px, 1.7vw, 24px); color: var(--navy100); }
+
+/* ---------- Order in Bulk ---------- */
+.dh-bulk { padding-top: clamp(48px, 5vw, 84px); }
+.dh-bulk-box { background: var(--navy900); border-radius: 40px 40px 0 0; overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; }
+.dh-bulk-img { position: relative; min-height: 480px; }
+.dh-bulk-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.dh-bulk-form { padding: clamp(36px, 4vw, 60px); display: flex; flex-direction: column; gap: clamp(24px, 3vw, 40px); }
+.dh-bulk-form h2 { font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: clamp(30px, 3.4vw, 52px); color: #fefefe; text-align: center; margin: 0; }
+.dh-field { display: flex; flex-direction: column; gap: 12px; }
+.dh-field label { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(17px, 1.6vw, 24px); color: #f4f6fd; }
+.dh-field input, .dh-field textarea { border: 1px solid #fefefe; border-radius: 12px; padding: 14px 18px; background: transparent; color: #fff; font-family: 'Montserrat', sans-serif; font-size: clamp(15px, 1.4vw, 20px); outline: none; width: 100%; }
+.dh-field input::placeholder, .dh-field textarea::placeholder { color: #d4dcf9; }
+.dh-field textarea { resize: vertical; min-height: 120px; }
+.dh-bulk-submit { background: var(--pink500); border: none; border-radius: 12px; cursor: pointer; padding: 18px; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: clamp(17px, 1.8vw, 24px); color: #fff; }
+.dh-bulk-submit:hover { filter: brightness(1.05); }
+.dh-bulk-submit:disabled { opacity: 0.7; cursor: default; }
+.dh-bulk-error { color: #ff9ecf; font-family: 'Montserrat', sans-serif; font-weight: 500; font-size: 14px; margin: 0; }
+.dh-bulk-or { display: flex; align-items: center; gap: 15px; color: #fff; font-size: 17px; }
+.dh-bulk-or span { flex: 1; height: 1px; background: rgba(255, 255, 255, 0.5); }
+.dh-bulk-call {
+  display: flex; align-items: center; justify-content: center; gap: 16px; background: #75b809;
+  border-radius: 12px; padding: 16px; text-decoration: none; color: #fff;
+  font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: clamp(17px, 1.8vw, 24px);
+}
+.dh-bulk-call:hover { filter: brightness(1.05); }
+.dh-bulk-call .ic { width: 34px; height: 34px; border-radius: 50%; border: 1px solid #d9ffbf; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.dh-bulk-call .ic img { width: 22px; height: 22px; }
+.dh-bulk-done { display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; padding: 20px 0; }
+.dh-bulk-done .ty { font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: clamp(28px, 3vw, 44px); color: #fff; margin: 0; }
+.dh-bulk-done .sub { color: #d4dcf9; font-size: clamp(15px, 1.4vw, 18px); margin: 0; line-height: 1.5; max-width: 420px; }
+
+/* ---------- Customer Reviews ---------- */
+/* Contained like Our Craft: white space on all four sides, dark rounded box inside. */
+.dh-reviews { max-width: 1360px; margin: 0 auto; padding: clamp(48px, 5vw, 84px) var(--gutter); }
+/* Square corners — no radius on the reviews panel. */
+.dh-reviews-box { background-color: var(--navy800); background-image: url(../assets/imgStatsBg.png); background-size: cover; background-position: center; overflow: hidden; padding: clamp(48px, 5vw, 80px) 24px; text-align: center; }
+.dh-reviews h2 { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(30px, 3.4vw, 52px); color: var(--navy50); margin: 0 0 24px; }
+.dh-reviews-rating { display: inline-flex; align-items: center; gap: 12px; }
+.dh-reviews-rating .stars { display: inline-flex; gap: 6px; }
+.dh-reviews-rating .val { font-weight: 600; font-size: clamp(20px, 2vw, 30px); color: var(--navy100); }
+.dh-reviews-rating .cnt { font-weight: 400; font-size: clamp(16px, 1.6vw, 24px); color: var(--navy100); }
+.dh-review-card { max-width: 900px; margin: 32px auto 0; background: var(--navy950); padding: clamp(32px, 4vw, 56px) 24px; display: flex; flex-direction: column; align-items: center; gap: 16px; animation: dhReviewFade 0.6s ease; }
+@keyframes dhReviewFade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+.dh-review-card .q { font-weight: 500; font-size: clamp(22px, 2.4vw, 40px); color: var(--navy50); }
+.dh-review-card .stars { display: flex; gap: 8px; }
+.dh-review-card .who { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: clamp(16px, 1.8vw, 28px); color: var(--navy50); }
+.dh-review-card .prod { font-weight: 400; font-size: clamp(15px, 1.5vw, 22px); color: var(--navy50); text-decoration: underline; }
+.dh-review-dots { display: flex; gap: 10px; justify-content: center; margin-top: 26px; }
+.dh-review-dots .d { width: 14px; height: 14px; border-radius: 50%; background: var(--navy300); border: none; padding: 0; cursor: pointer; transition: width 0.3s ease, background 0.3s ease; }
+.dh-review-dots .d.on { background: var(--pink500); width: 34px; border-radius: 7px; }
+
+/* ---------- Shop links ---------- */
+/* Footer + SHOP band are shared by every desktop page (rendered inside .dt too,
+   not just .dh), so use literal colours instead of .dh-scoped CSS variables. */
+.dh-shop { background: #20232f; color: #fff; }
+/* The block shrinks to its widest row (fit-content) and is centred, so the
+   left and right gutters are equal — while "SHOP" and every row still share
+   the block's left edge (Figma Frame 331/332 align at x=0). max-width keeps it
+   inside the viewport on narrow screens, where the rows wrap instead. */
+.dh-shop-inner { width: fit-content; max-width: min(1360px, 100%); box-sizing: border-box; margin: 0 auto; padding: clamp(40px, 4.5vw, 60px) var(--gutter); }
+.dh-shop h2 { font-weight: 500; font-size: clamp(30px, 3.4vw, 48px); color: #fff; margin: 0 0 clamp(20px, 2.4vw, 30px); }
+/* Items sit close together (spacing follows text length) and the row is centred,
+   with a thin divider centred in the gap between items. */
+/* Figma Frame 331/332: both rows start at x=0 of the SHOP column
+   (primaryAxisAlignItems MIN), so the first link lines up under "SHOP". */
+.dh-shop-row { --shop-gap: clamp(24px, 3vw, 46px); display: flex; align-items: center; justify-content: flex-start; flex-wrap: wrap; column-gap: var(--shop-gap); row-gap: 14px; }
+.dh-shop-row + .dh-shop-row { margin-top: clamp(14px, 2vw, 24px); }
+.dh-shop-row a { color: #fff; text-decoration: none; font-weight: 500; font-size: clamp(15px, 1.7vw, 24px); cursor: pointer; white-space: nowrap; line-height: 1.2; position: relative; }
+.dh-shop-row a:not(:last-child)::after { content: ''; position: absolute; right: calc(var(--shop-gap) / -2); top: 50%; transform: translateY(-50%); height: 1.1em; width: 1px; background: rgba(255,255,255,0.5); }
+.dh-shop-row a:hover { text-decoration: underline; }
+
+/* ---------- Footer ---------- */
+.dh-footer { background: #f3f3f6; color: #000; }
+.dh-footer-inner { max-width: 1560px; margin: 0 auto; padding: clamp(32px, 3.5vw, 52px) var(--gutter); display: flex; justify-content: space-between; gap: clamp(24px, 3vw, 56px); flex-wrap: wrap; }
+.dh-fbrand { display: flex; flex-direction: column; gap: 20px; }
+.dh-fbrand .logo { width: clamp(180px, 18vw, 280px); height: auto; }
+.dh-fsocials { display: flex; gap: 14px; }
+.dh-fsocial { width: 52px; height: 52px; border-radius: 50%; background: #d0d7f2; display: flex; align-items: center; justify-content: center; }
+.dh-fsocial img { width: 26px; height: 26px; }
+.dh-fcol h4 { font-weight: 600; font-size: clamp(20px, 2vw, 28px); color: #000; margin: 0 0 14px; }
+.dh-fcol a { display: block; color: #3c4154; text-decoration: none; font-weight: 500; font-size: clamp(15px, 1.6vw, 22px); margin-bottom: 12px; cursor: pointer; }
+.dh-fcol a:hover { text-decoration: underline; }
+.dh-fcontact { display: flex; flex-direction: column; gap: 13px; }
+.dh-fcontact .line { display: flex; align-items: center; gap: 16px; font-weight: 500; font-size: clamp(15px, 1.6vw, 22px); color: #000; text-decoration: none; }
+.dh-fcontact a.line { cursor: pointer; }
+.dh-fcontact a.line:hover { text-decoration: underline; }
+.dh-fcontact .line.plain { cursor: default; }
+.dh-fcontact .line img { width: 26px; height: 26px; }
+.dh-footer-bottom { border-top: 1px solid #c9c9c9; }
+.dh-footer-bottom-inner { max-width: 1560px; margin: 0 auto; padding: 18px var(--gutter); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+.dh-footer-bottom-inner .links { display: flex; gap: clamp(24px, 4vw, 80px); flex-wrap: wrap; }
+.dh-footer-bottom-inner a, .dh-footer-bottom-inner span { font-weight: 500; font-size: clamp(14px, 1.4vw, 20px); color: #686868; text-decoration: none; cursor: pointer; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1023px) {
+  /* 80px each side would eat a third of a tablet width — step the shared
+     gutter down so every section narrows together and stays aligned. */
+  .dh, .dt { --gutter: 40px; }
+  .dh-cat-grid { grid-template-columns: repeat(2, 1fr); }
+  .dh-stats-inner { grid-template-columns: repeat(2, 1fr); }
+  .dh-essential-inner, .dh-bulk-box { grid-template-columns: 1fr; }
+  .dh-essential-img, .dh-bulk-img { min-height: 320px; order: -1; }
+  /* Horizontal inset now comes from the inner's --gutter, so vertical only. */
+  .dh-essential-text { padding: 40px 0; }
+  .dh-craft-text { max-width: 100%; }
+}
+@media (max-width: 767px) {
+  .dh, .dt { --gutter: 24px; }
+  .dh-stats-inner { grid-template-columns: 1fr 1fr; }
+}

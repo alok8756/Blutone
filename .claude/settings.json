@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(nslookup -type=NS blutone.in)",
+      "Bash(nslookup api.blutone.in)",
+      "Bash(nslookup blutone.in)",
+      "Bash(nslookup -type=SRV _mongodb._tcp.cluster0.3ytpevi.mongodb.net 8.8.8.8)",
+      "Bash(nslookup -type=TXT cluster0.3ytpevi.mongodb.net 8.8.8.8)"
+    ]
+  }
+}

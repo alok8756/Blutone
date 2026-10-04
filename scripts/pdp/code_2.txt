@@ -1,0 +1,7 @@
+          <Cart className="block relative shrink-0 size-[32px]" />
+          <Component1 className="block relative shrink-0 size-[32px]" />
+        </div>
+      </div>
+    </div>
+  );
+}
